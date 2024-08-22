@@ -1,0 +1,47 @@
+void main() {
+  // Crear una clase llamada persona con los atributos nombre, apellido, edad, telefono, email.
+  final persona = Persona("Andrea", "Lopez", 24, "3243371145", "andrealopezherrera@email.com");
+  print(persona);
+
+  // Crear e instanciar la clase Animal
+  final animal = Animal("Bulldog", persona, DateTime(2020, 5, 10), ["Rabia", "Parvovirus"]);
+  print(animal);
+}
+
+// Definición de la clase Persona
+class Persona {
+  String nombre;
+  String apellido;
+  int edad;
+  String telefono;
+  String email;
+
+  // Constructor de la clase Persona
+  Persona(this.nombre, this.apellido, this.edad, this.telefono, this.email);
+
+  // Sobrescribir el método toString
+  @override
+  String toString() {
+    return 'Persona: $nombre $apellido, Edad: $edad, Teléfono: $telefono, Email: $email';
+  }
+}
+
+// Definición de la clase Animal
+class Animal {
+  String raza;
+  Persona propietario;
+  DateTime fechaNacimiento;
+  List<String> vacunas;
+
+  // Constructor de la clase Animal
+  Animal(this.raza, this.propietario, this.fechaNacimiento, this.vacunas);
+
+  // Sobrescribir el método toString
+  @override
+  String toString() {
+    return 'Animal: Raza $raza, Propietario: ${propietario.nombre} ${propietario.apellido}, '
+           'Fecha de Nacimiento: ${fechaNacimiento.day}/${fechaNacimiento.month}/${fechaNacimiento.year}, '
+           'Vacunas: ${vacunas.join(", ")}';
+  }
+}
+
